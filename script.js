@@ -1,6 +1,17 @@
 document.addEventListener('DOMContentLoaded', function() {
     const sections = document.querySelectorAll('.portfolio-section');
     const images = document.querySelectorAll('.portfolio-image');
+    const indicatorContainer = document.querySelector('.scroll-indicator');
+    
+    // Dynamically create indicator dots for all sections
+    sections.forEach((section, index) => {
+        const dot = document.createElement('div');
+        dot.className = 'indicator-dot';
+        if (index === 0) dot.classList.add('active');
+        dot.setAttribute('data-section', index);
+        indicatorContainer.appendChild(dot);
+    });
+    
     const indicators = document.querySelectorAll('.indicator-dot');
     let currentSection = 0;
 
